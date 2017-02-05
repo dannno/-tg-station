@@ -121,3 +121,12 @@
 			C.use(2)
 			new/obj/vehicle/scooter(get_turf(src))
 			qdel(src)
+
+//kickflippin
+/obj/vehicle/scooter/skateboard/attack_hand(mob/user)
+	icon_state += "_flip"
+	usr.pass_flags |= PASSTABLE
+	sleep(10)
+	icon_state = initial(icon_state)
+	usr.pass_flags &= ~PASSTABLE
+	return 1
